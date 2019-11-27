@@ -1,3 +1,6 @@
+import random
+import time
+
 def quest_logic():
     win_chance = 50
     if random.randint(0, 100) < win_chance:
