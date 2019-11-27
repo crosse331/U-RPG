@@ -1,21 +1,36 @@
 import random
+import quest.py
+import battle.py
 
 #Universal RPG
 
-def battle_logic():
-    win_chance = 50
-    if random.randint(0, 100) < win_chance:
-        print("Ты победил!")
-    else:
-        print("Ты проиграл!")
+text = {
+    "Ты двигаешься дальше, но ничего не происходит...",
+    "Ты огляделся, ничего не увидел, и пошёл дальше...",
+    "..."}
 
 print("Начинается игра!")
 isGameEnded = False
 while (not isGameEnded):
-    battle_input = input("Начинается битва! Сражаться? (y|n)")
-    if battle_input == "y" or battle_input == "Y":
+
+    battle_chance = 10
+    quest_chance = 5
+    if random.randint(0, 100) < battle_chance:
+        print("На тебя напал страшный АйМонстр.")
+        print("Начинается битва!")
         battle_logic()
-    elif battle_input == "q" or battle_input=="Q":
-        isGameEnded = True
+        continue
+    elif random.randint(0, 100) < quest_chance:
+        print("Ты обнаружил какое-то строение.")
+        quest_input = input("Обследуешь его? (y|n)")
+        if quest_input == "y" or quest_input == "Y":
+            quest_logic()
+        elif quest_input == "q" or quest_input == "Q":
+            isGameEnded = True
+
+        continue
+    else:
+        print(text[random.randint(0, 2)])
+        continue
 
 print("Game Over!")
