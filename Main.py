@@ -1,13 +1,13 @@
 import random
-import quest.py
-import battle.py
+import quest
+import battle
 
 #Universal RPG
 
-text = {
+text = [
     "Ты двигаешься дальше, но ничего не происходит...",
     "Ты огляделся, ничего не увидел, и пошёл дальше...",
-    "..."}
+    "..."]
 
 print("Начинается игра!")
 isGameEnded = False
@@ -18,13 +18,13 @@ while (not isGameEnded):
     if random.randint(0, 100) < battle_chance:
         print("На тебя напал страшный АйМонстр.")
         print("Начинается битва!")
-        battle_logic()
+        battle.battle_logic()
         continue
     elif random.randint(0, 100) < quest_chance:
         print("Ты обнаружил какое-то строение.")
         quest_input = input("Обследуешь его? (y|n)")
         if quest_input == "y" or quest_input == "Y":
-            quest_logic()
+            quest.quest_logic()
         elif quest_input == "q" or quest_input == "Q":
             isGameEnded = True
 
