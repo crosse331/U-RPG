@@ -1,6 +1,6 @@
 import random
-import core.quest
-import core.battle
+import core.quest as quest
+import core.battle as battle
 import time
 
 
