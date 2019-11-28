@@ -1,6 +1,7 @@
 import random
 import quest
 import battle
+import time
 
 #Universal RPG
 
@@ -12,7 +13,7 @@ text = [
 print("Начинается игра!")
 isGameEnded = False
 while (not isGameEnded):
-
+    time.sleep(1)
     battle_chance = 10
     quest_chance = 5
     if random.randint(0, 100) < battle_chance:
